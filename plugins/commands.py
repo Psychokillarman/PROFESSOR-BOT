@@ -201,7 +201,13 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    await client.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=f_caption, protect_content=True if pre == 'filep' else False,)
+    buttons = [
+                    [
+                        InlineKeyboardButton('🎬 Movies 🎬', url='https://t.me/+mf31tNsxofkyOGE1'),
+                        InlineKeyboardButton('💢 Series 💢', url='https://seriesclubgroups')
+                    ]
+    ]
+    await client.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=f_caption, reply_markup=InlineKeyboardMarkup(buttons), protect_content=True if pre == 'filep' else False,)
                     
 
 
